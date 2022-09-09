@@ -52,12 +52,12 @@ class _ListScreenState extends State<ListScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Asif Shiakh",
+                              Text("Asif Shaikh",
                                   maxLines: 2,
                                   style: R14M.copyWith(
-                                      color: LinkColor.withOpacity(0.7))),
+                                      color: LinkColor.withOpacity(0.7),),),
                               const SizedBox(height: 2),
-                              Text("Asif Shiakh",
+                              Text("Asif Shaikh ansjcjbxjkcbzjbxcuiszjcbjsbjbzdklcnjnzxjncxjkbkjn",
                                   maxLines: 2,
                                   style: R14M.copyWith(color: KCOLOR_PRIMARY)),
                             ],
@@ -130,20 +130,7 @@ class _ListScreenState extends State<ListScreen> {
                               ),
                             ),
                           ),
-                          // IconButton(
-                          //     onPressed: () {
-                          //       showDialog(
-                          //           context: context,
-                          //           barrierDismissible: false,
-                          //           builder: (context) => DeleteConfirmDialog(
-                          //                 expenseId: widget.data.id,
-                          //               ));
-                          //     },
-                          //     icon: Icon(
-                          //       Icons.delete,
-                          //       size: 18,
-                          //       color: TextPrimary,
-                          //     )),
+
                         ),
                         const SizedBox(
                           width: 8,
@@ -247,7 +234,7 @@ class _ListScreenState extends State<ListScreen> {
 
 
                   //List Data
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height - 200,
                     child: ListView.builder(
                         primary: false,
@@ -258,9 +245,7 @@ class _ListScreenState extends State<ListScreen> {
                           return InkWell(
                             child: getItem(),
                             onTap: () {
-                              //
                               search.unfocus();
-
                             },
                           );
                         }),
