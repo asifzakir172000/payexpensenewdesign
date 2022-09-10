@@ -92,6 +92,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                 ),
                 const Divider(),
                 SingleChildScrollView(
+                  primary: true,
+                  physics: const BouncingScrollPhysics(),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),

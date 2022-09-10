@@ -1,17 +1,19 @@
+import 'package:bottomnavigation/dash2.dart';
 import 'package:bottomnavigation/report_details.dart';
 import 'package:flutter/material.dart';
 import 'package:bottomnavigation/styles.dart';
 import 'package:bottomnavigation/Colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
-class ListScreen extends StatefulWidget {
-  const ListScreen ({Key? key}) : super(key: key);
+class ApproveScreen extends StatefulWidget {
+  const ApproveScreen ({Key? key}) : super(key: key);
 
   @override
-  State<ListScreen> createState() => _ListScreenState();
+  State<ApproveScreen> createState() => _ListScreenState();
 }
 
-class _ListScreenState extends State<ListScreen> {
+class _ListScreenState extends State<ApproveScreen> {
 
   getItem(){
     return Container(
@@ -22,8 +24,8 @@ class _ListScreenState extends State<ListScreen> {
           ),
           boxShadow: [
             BoxShadow(
-            color: Colors.grey,
-            blurRadius: .5,
+              color: Colors.grey,
+              blurRadius: .5,
             ),
           ],
           borderRadius: BorderRadius.all(Radius.circular(10))
@@ -75,64 +77,13 @@ class _ListScreenState extends State<ListScreen> {
                 const SizedBox(
                   width: 15,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 8.0, right: 8.0),
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "Status",
-                        style: R14R.copyWith(color: Colors.redAccent, fontWeight: FontWeight.w900,),
-                      ),),
-                    Container(
-                      margin: const EdgeInsets.only(left: 8.0, right: 8.0),
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "Rs. 70.00",
-                        style: R14R.copyWith(color: KCOLOR_PRIMARY),
-                      ),
-                    ),
-                  ],
-                ),
-
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(child: Text(
-                  "",
-                  style: R14R.copyWith(color: KCOLOR_PRIMARY),
-                ),),
-                Visibility(
-                  visible: true,
-                  child: InkWell(
-                    onTap: () {
-                      // Fluttertoast.showToast(
-                      //     msg: '${expenseReport.sendBackRemarks}');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 4),
-                      child: SvgPicture.asset(
-                        "assets/images/app-indicator.svg",
-                        fit: BoxFit.scaleDown,
-                        color: LinkColor,
-                      ),
-                    ),
-                  ),
-
-                ),
-                const SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "On 08-Sep-2022",
-                  style: R13R.copyWith(color: KCOLOR_PRIMARY),
-                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 8.0, right: 8.0),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Status",
+                    style: R14R.copyWith(color: Colors.redAccent, fontWeight: FontWeight.w900,),
+                  ),),
               ],
             ),
           ],
@@ -154,9 +105,42 @@ class _ListScreenState extends State<ListScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Expense Reports",
-                  style: FK22SB.copyWith(color: TextPrimary),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Dashboard",
+                      style: FK22SB.copyWith(color: TextPrimary),
+                    ),
+                    Row(
+                      children: [
+                        FlutterSwitch(
+                          height: 22,
+                          width: 45,
+                          padding: 3,
+                          toggleSize: 15,
+                          value: true,
+                          toggleColor: TextPrimary,
+                          inactiveColor: Colors.white,
+                          activeColor: Colors.white,
+                          switchBorder: Border.all(
+                            color: TextPrimary,
+                            width: 1.0,
+                          ),
+                          onToggle: (newVal) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MyDashBoard2()),
+                            );
+                          },
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Icon(Icons.group, color: TextPrimary,),
+                      ],
+                    )
+                  ],
                 ),
                 const SizedBox(
                   height: 24,
@@ -172,40 +156,40 @@ class _ListScreenState extends State<ListScreen> {
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
                     child: TextField(
-                        cursorHeight: 22,
-                        autofocus: false,
-                        textAlignVertical: TextAlignVertical.center,
-                        textAlign: TextAlign.left,
-                        onEditingComplete: (){
+                      cursorHeight: 22,
+                      autofocus: false,
+                      textAlignVertical: TextAlignVertical.center,
+                      textAlign: TextAlign.left,
+                      onEditingComplete: (){
 
-                        },
-                        onSubmitted: (value){
+                      },
+                      onSubmitted: (value){
 
-                        },
-                        decoration: InputDecoration(
-                          prefixIconConstraints: const BoxConstraints(maxWidth: 40) ,
-                          border: InputBorder.none,
-                          prefixIcon:Padding(
-                              padding: const EdgeInsets.only(left: 16,right: 9,bottom: 4),
-                              child:
-                              SvgPicture.asset(
-                                "assets/images/search.svg",
-                                color: GREY_COLOR,
-                                height: 20,
-                                width: 20,
-                              )
-                            // Icon(
-                            //   Icons.search,
-                            //   color: GREY_COLOR,
-                            //   size: 22,
-                            // ),
-                          ),
-                          // contentPadding: EdgeInsets.only(top: 0),
-                          hintText: "Search",
-                          filled: true,
-                          fillColor: KDIVIDER_COLOR,
-                          hintStyle: R14R.copyWith(color: GREY_COLOR),
+                      },
+                      decoration: InputDecoration(
+                        prefixIconConstraints: const BoxConstraints(maxWidth: 40) ,
+                        border: InputBorder.none,
+                        prefixIcon:Padding(
+                            padding: const EdgeInsets.only(left: 16,right: 9,bottom: 4),
+                            child:
+                            SvgPicture.asset(
+                              "assets/images/search.svg",
+                              color: GREY_COLOR,
+                              height: 20,
+                              width: 20,
+                            )
+                          // Icon(
+                          //   Icons.search,
+                          //   color: GREY_COLOR,
+                          //   size: 22,
+                          // ),
                         ),
+                        // contentPadding: EdgeInsets.only(top: 0),
+                        hintText: "Search",
+                        filled: true,
+                        fillColor: KDIVIDER_COLOR,
+                        hintStyle: R14R.copyWith(color: GREY_COLOR),
+                      ),
 
                     ),
 
@@ -218,7 +202,7 @@ class _ListScreenState extends State<ListScreen> {
 
                 //List Data
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .743,
+                  height: MediaQuery.of(context).size.height * .74,
                   child: ListView.builder(
                       primary: false,
                       itemCount: 5,

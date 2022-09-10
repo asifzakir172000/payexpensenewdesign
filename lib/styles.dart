@@ -132,7 +132,7 @@ InputDecoration KInputSytle = InputDecoration(
   // labelText: "Email Address",
 );
 
-const KInputRadius = BorderRadius.all(Radius.circular(0));
+const KInputRadius = BorderRadius.all(Radius.circular(10));
 const KContainerRadius = BorderRadius.all(Radius.circular(2));
 //box shadow for cards
 const KboxShaddow = [

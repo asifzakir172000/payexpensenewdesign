@@ -3,11 +3,14 @@ import 'package:bottomnavigation/Colors.dart';
 import 'package:bottomnavigation/HomeScreen.dart';
 import 'package:bottomnavigation/ListScreen.dart';
 import 'package:bottomnavigation/account_details.dart';
+import 'package:bottomnavigation/select%20_expense_type.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class MyDashBoard2 extends StatefulWidget {
+  const MyDashBoard2({Key? key}) : super(key: key);
+
 
   @override
   _MyDashBoardState createState() => _MyDashBoardState();
@@ -28,6 +31,13 @@ class _MyDashBoardState extends State<MyDashBoard2> {
     super.initState();
   }
 
+  gotoExpenseType({title}){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ExpenseType(titleText: title)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,24 +54,28 @@ class _MyDashBoardState extends State<MyDashBoard2> {
               foregroundColor: Colors.white,
               backgroundColor: Colors.red,
               label: 'Regular 1',
+              onTap: () => gotoExpenseType(title: "Regular 1"),
             ),
             SpeedDialChild(
               child: const Icon(Icons.directions_bike),
               foregroundColor: Colors.white,
               backgroundColor: Colors.green,
               label: 'Business',
+              onTap: () => gotoExpenseType(title: "Business"),
             ),
             SpeedDialChild(
               child: const Icon(Icons.directions_walk),
               foregroundColor: Colors.black,
               backgroundColor: Colors.yellow,
               label: 'Regular',
+              onTap: () => gotoExpenseType(title: "Regular"),
             ),
             SpeedDialChild(
               child: const Icon(Icons.directions_run),
               foregroundColor: Colors.white,
               backgroundColor: Colors.red,
               label: 'Travel',
+              onTap: () => gotoExpenseType(title: "Travel"),
             ),
           ],
         ),

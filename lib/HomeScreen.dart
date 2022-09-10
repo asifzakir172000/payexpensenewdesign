@@ -1,7 +1,9 @@
+import 'package:bottomnavigation/dash.dart';
 import 'package:flutter/material.dart';
 import 'package:bottomnavigation/styles.dart';
 import 'package:bottomnavigation/Colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -64,9 +66,42 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Dashboard",
-                  style: FK22SB.copyWith(color: TextPrimary),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Dashboard",
+                      style: FK22SB.copyWith(color: TextPrimary),
+                    ),
+                    Row(
+                      children: [
+                        FlutterSwitch(
+                          height: 22,
+                          width: 45,
+                          padding: 3,
+                          toggleSize: 15,
+                          value: false,
+                          toggleColor: TextPrimary,
+                          inactiveColor: Colors.white,
+                          activeColor: Colors.white,
+                          switchBorder: Border.all(
+                            color: TextPrimary,
+                            width: 1.0,
+                          ),
+                          onToggle: (newVal) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ManagerBottomBar()),
+                            );
+                          },
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Icon(Icons.account_circle_rounded, color: TextPrimary,),
+                      ],
+                    )
+                  ],
                 ),
                 Row(
                   children: [
