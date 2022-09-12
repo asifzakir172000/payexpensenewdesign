@@ -42,50 +42,58 @@ class _ExpenseTypeState extends State<ExpenseType> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: TextPrimary,
         body: WillPopScope(
           onWillPop: () async => true,
-          child: SingleChildScrollView(
-            primary: true,
-            child: Container(
-              margin: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(Icons.arrow_back_ios, color: TextPrimary, size: 20,),
-                      Text(
-                        widget.titleText,
-                        style: FK22SB.copyWith(color: TextPrimary),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.all(20.0),
+                height: MediaQuery.of(context).size.width * .1,
+                child: Row(
+                  children: [
+                    InkWell(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20,),
+                    ),
+                    Text(
+                      widget.titleText,
+                      style: FK22SB.copyWith(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
 
-
-                  //List Data
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height - 200,
-                    child: GridView.count(
-                        primary: false,
-                        crossAxisCount: 2,
-                        childAspectRatio: (1 / .4),
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        children: List.generate(5, (index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 10),
-                            child: getItem(index),
-                          );
-                        }),
+              //List Data
+              Expanded(child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30.0),
+                    topRight: Radius.circular(30.0),
                   ),
                 ),
-                ],
-              ),
-            ),
+                height: MediaQuery.of(context).size.height - 200,
+                child: GridView.count(
+                  primary: false,
+                  padding: const EdgeInsets.all(20.0),
+                  crossAxisCount: 2,
+                  childAspectRatio: (1 / .4),
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  children: List.generate(5, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: getItem(index),
+                    );
+                  }),
+                ),
+              ),),
+
+            ],
           ),
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:bottomnavigation/Colors.dart';
 import 'package:bottomnavigation/HomeScreen.dart';
 import 'package:bottomnavigation/ListScreen.dart';
 import 'package:bottomnavigation/account_details.dart';
+import 'package:bottomnavigation/pageTrans.dart';
 import 'package:bottomnavigation/select%20_expense_type.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _MyDashBoardState extends State<MyDashBoard2> {
   gotoExpenseType({title}){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ExpenseType(titleText: title)),
+      PageTransitionSlide(ExpenseType(titleText: title)),
     );
   }
 

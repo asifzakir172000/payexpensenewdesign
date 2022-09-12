@@ -1,6 +1,9 @@
 
 import 'package:bottomnavigation/Colors.dart';
 import 'package:bottomnavigation/approve.dart';
+import 'package:bottomnavigation/my_delegations.dart';
+import 'package:bottomnavigation/new_delegation.dart';
+import 'package:bottomnavigation/pageTrans.dart';
 import 'package:bottomnavigation/select%20_expense_type.dart';
 import 'package:bottomnavigation/styles.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
@@ -44,7 +47,7 @@ class _ManagerBottomBarState extends State<ManagerBottomBar> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ExpenseType(titleText: "New Delegate")),
+              PageTransitionSlide(const NewDelegation()),
             );
           },
           backgroundColor: TextPrimary,
@@ -67,30 +70,30 @@ class _ManagerBottomBarState extends State<ManagerBottomBar> {
         BubbleBottomBarItem(
           backgroundColor: TextPrimary2,
           icon: Icon(
-            Icons.home,
+            Icons.approval_outlined,
             color: TextPrimary,
             size: 22,
           ),
           activeIcon: Icon(
-            Icons.home,
+            Icons.approval_outlined,
             color: TextPrimary2,
             size: 22,
           ),
-          title: Text("Dashboard"),
+          title: Text("Approval"),
         ),
         BubbleBottomBarItem(
-          backgroundColor: THEME_GREEN,
+          backgroundColor: Colors.deepOrangeAccent,
           icon: Icon(
-            Icons.person,
+            Icons.approval_outlined,
             color: TextPrimary2,
             size: 22,
           ),
           activeIcon: Icon(
-            Icons.person,
-            color: THEME_GREEN,
+            Icons.approval_outlined,
+            color: Colors.deepOrangeAccent,
             size: 22,
           ),
-          title: Text("My Expenses"),
+          title: Text("My Delegations"),
         ),
       ],
     );
@@ -100,7 +103,7 @@ class _ManagerBottomBarState extends State<ManagerBottomBar> {
   Widget getBody() {
     List<Widget> pages = [
       const ApproveScreen(),
-     Center(child: Text("Home2", style: FK18B.copyWith(color: Colors.blue),)),
+      const MyDelegation(),
     ];
     return IndexedStack(
       index: _currentIndex,

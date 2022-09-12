@@ -1,4 +1,5 @@
 import 'package:bottomnavigation/dash.dart';
+import 'package:bottomnavigation/pageTrans.dart';
 import 'package:flutter/material.dart';
 import 'package:bottomnavigation/styles.dart';
 import 'package:bottomnavigation/Colors.dart';
@@ -91,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onToggle: (newVal) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ManagerBottomBar()),
+                              PageTransitionFade(const ManagerBottomBar()),
                             );
                           },
                         ),

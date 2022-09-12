@@ -1,4 +1,5 @@
 import 'package:bottomnavigation/dash2.dart';
+import 'package:bottomnavigation/pageTrans.dart';
 import 'package:bottomnavigation/report_details.dart';
 import 'package:flutter/material.dart';
 import 'package:bottomnavigation/styles.dart';
@@ -33,20 +34,27 @@ class _ListScreenState extends State<ApproveScreen> {
       child: Container(
         margin: const EdgeInsets.only(left: 15.0,top: 15.0, bottom: 15.0, right: 10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   decoration: const BoxDecoration(
-                    color: Color(0xFFFFD55C),
+                    color: KCOLOR_SHADOW,
                     shape: BoxShape.circle,
                   ),
                   // margin: EdgeInsets.all(8),
-                  child: Container(margin: const EdgeInsets.all(5), child: SvgPicture.asset("assets/images/Vector.svg", height: 10,)),
+                  child: Center(
+                    child: Text(
+                      "AS",
+                      style: FK14M.copyWith(color: Colors.white),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -59,17 +67,17 @@ class _ListScreenState extends State<ApproveScreen> {
                       Text("Asif Shaikh",
                         maxLines: 2,
                         style: R14M.copyWith(
-                          color: LinkColor.withOpacity(0.7),),),
+                          color: KCOLOR_PRIMARY,),),
                       const SizedBox(height: 2),
-                      Text("Asif Shaikh ansjcjbxjkcbzjbxcuiszjcbjsbjbzdklcnjnzxjncxjkbkjn",
+                      Text("Ts-20220300046",
                           maxLines: 2,
-                          style: R14M.copyWith(color: KCOLOR_PRIMARY)),
+                          style: R14M.copyWith(color: LinkColor.withOpacity(0.7))),
                       const SizedBox(
-                        height: 10,
+                        height: 2,
                       ),
                       Text(
-                        "Period: 80-Sep-2022 to 10-Sep-2022",
-                        style: R14R.copyWith(color: KCOLOR_PRIMARY),
+                        "Business/Stamp Charges Expenses",
+                        style: R13M.copyWith(color: GREY_COLOR, fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -82,7 +90,7 @@ class _ListScreenState extends State<ApproveScreen> {
                   alignment: Alignment.centerRight,
                   child: Text(
                     "Status",
-                    style: R14R.copyWith(color: Colors.redAccent, fontWeight: FontWeight.w900,),
+                    style: R14R.copyWith(color: Colors.redAccent, fontWeight: FontWeight.w500,),
                   ),),
               ],
             ),
@@ -109,7 +117,7 @@ class _ListScreenState extends State<ApproveScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Dashboard",
+                      "Approval",
                       style: FK22SB.copyWith(color: TextPrimary),
                     ),
                     Row(
@@ -130,7 +138,7 @@ class _ListScreenState extends State<ApproveScreen> {
                           onToggle: (newVal) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const MyDashBoard2()),
+                              PageTransitionFade(const MyDashBoard2()),
                             );
                           },
                         ),
