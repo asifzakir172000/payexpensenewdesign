@@ -56,7 +56,12 @@ class _ReportDetailsState extends State<ReportDetails> {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.arrow_back_ios, color: TextPrimary, size: 18,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(Icons.arrow_back_ios, color: TextPrimary, size: 20,),
+                  ),
                   Text(
                     "Expense Details",
                     style: FK22SB.copyWith(color: TextPrimary),

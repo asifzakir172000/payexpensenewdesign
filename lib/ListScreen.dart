@@ -149,99 +149,102 @@ class _ListScreenState extends State<ListScreen> {
         backgroundColor: Colors.white,
         body: WillPopScope(
           onWillPop: () async => false,
-          child: Container(
-            margin: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Expense Reports",
-                  style: FK22SB.copyWith(color: TextPrimary),
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-
-                //search
-                Container(
-                  height: 45,
-                  decoration: const BoxDecoration(
-                      color: KDIVIDER_COLOR,
-                      borderRadius: BorderRadius.all(Radius.circular(20))
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Container(
+              margin: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Expense Reports",
+                    style: FK22SB.copyWith(color: TextPrimary),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
-                    child: TextField(
-                        cursorHeight: 22,
-                        autofocus: false,
-                        textAlignVertical: TextAlignVertical.center,
-                        textAlign: TextAlign.left,
-                        onEditingComplete: (){
+                  const SizedBox(
+                    height: 24,
+                  ),
 
-                        },
-                        onSubmitted: (value){
+                  //search
+                  Container(
+                    height: 45,
+                    decoration: const BoxDecoration(
+                        color: KDIVIDER_COLOR,
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
+                      child: TextField(
+                          cursorHeight: 22,
+                          autofocus: false,
+                          textAlignVertical: TextAlignVertical.center,
+                          textAlign: TextAlign.left,
+                          onEditingComplete: (){
 
-                        },
-                        decoration: InputDecoration(
-                          prefixIconConstraints: const BoxConstraints(maxWidth: 40) ,
-                          border: InputBorder.none,
-                          prefixIcon:Padding(
-                              padding: const EdgeInsets.only(left: 16,right: 9,bottom: 4),
-                              child:
-                              SvgPicture.asset(
-                                "assets/images/search.svg",
-                                color: GREY_COLOR,
-                                height: 20,
-                                width: 20,
-                              )
-                            // Icon(
-                            //   Icons.search,
-                            //   color: GREY_COLOR,
-                            //   size: 22,
-                            // ),
+                          },
+                          onSubmitted: (value){
+
+                          },
+                          decoration: InputDecoration(
+                            prefixIconConstraints: const BoxConstraints(maxWidth: 40) ,
+                            border: InputBorder.none,
+                            prefixIcon:Padding(
+                                padding: const EdgeInsets.only(left: 16,right: 9,bottom: 4),
+                                child:
+                                SvgPicture.asset(
+                                  "assets/images/search.svg",
+                                  color: GREY_COLOR,
+                                  height: 20,
+                                  width: 20,
+                                )
+                              // Icon(
+                              //   Icons.search,
+                              //   color: GREY_COLOR,
+                              //   size: 22,
+                              // ),
+                            ),
+                            // contentPadding: EdgeInsets.only(top: 0),
+                            hintText: "Search",
+                            filled: true,
+                            fillColor: KDIVIDER_COLOR,
+                            hintStyle: R14R.copyWith(color: GREY_COLOR),
                           ),
-                          // contentPadding: EdgeInsets.only(top: 0),
-                          hintText: "Search",
-                          filled: true,
-                          fillColor: KDIVIDER_COLOR,
-                          hintStyle: R14R.copyWith(color: GREY_COLOR),
-                        ),
+
+                      ),
+
 
                     ),
-
-
                   ),
-                ),
-                const SizedBox(
-                  height: 14,
-                ),
+                  const SizedBox(
+                    height: 14,
+                  ),
 
-                //List Data
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .743,
-                  child: ListView.builder(
-                      primary: false,
-                      itemCount: 5,
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            child: getItem(),
-                            onTap: () {
-                              search.unfocus();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const ReportDetails()),
-                              );
-                            },
-                          ),
-                        );
-                      }),
-                ),
+                  //List Data
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .743,
+                    child: ListView.builder(
+                        primary: false,
+                        itemCount: 5,
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              child: getItem(),
+                              onTap: () {
+                                search.unfocus();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ReportDetails()),
+                                );
+                              },
+                            ),
+                          );
+                        }),
+                  ),
 
-              ],
+                ],
+              ),
             ),
           ),
         ),

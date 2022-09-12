@@ -108,132 +108,135 @@ class _ListScreenState extends State<ApproveScreen> {
         backgroundColor: Colors.white,
         body: WillPopScope(
           onWillPop: () async => false,
-          child: Container(
-            margin: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Approval",
-                      style: FK22SB.copyWith(color: TextPrimary),
-                    ),
-                    Row(
-                      children: [
-                        FlutterSwitch(
-                          height: 22,
-                          width: 45,
-                          padding: 3,
-                          toggleSize: 15,
-                          value: true,
-                          toggleColor: TextPrimary,
-                          inactiveColor: Colors.white,
-                          activeColor: Colors.white,
-                          switchBorder: Border.all(
-                            color: TextPrimary,
-                            width: 1.0,
-                          ),
-                          onToggle: (newVal) {
-                            Navigator.push(
-                              context,
-                              PageTransitionFade(const MyDashBoard2()),
-                            );
-                          },
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        const Icon(Icons.group, color: TextPrimary,),
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-
-                //search
-                Container(
-                  height: 45,
-                  decoration: const BoxDecoration(
-                      color: KDIVIDER_COLOR,
-                      borderRadius: BorderRadius.all(Radius.circular(20))
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
-                    child: TextField(
-                      cursorHeight: 22,
-                      autofocus: false,
-                      textAlignVertical: TextAlignVertical.center,
-                      textAlign: TextAlign.left,
-                      onEditingComplete: (){
-
-                      },
-                      onSubmitted: (value){
-
-                      },
-                      decoration: InputDecoration(
-                        prefixIconConstraints: const BoxConstraints(maxWidth: 40) ,
-                        border: InputBorder.none,
-                        prefixIcon:Padding(
-                            padding: const EdgeInsets.only(left: 16,right: 9,bottom: 4),
-                            child:
-                            SvgPicture.asset(
-                              "assets/images/search.svg",
-                              color: GREY_COLOR,
-                              height: 20,
-                              width: 20,
-                            )
-                          // Icon(
-                          //   Icons.search,
-                          //   color: GREY_COLOR,
-                          //   size: 22,
-                          // ),
-                        ),
-                        // contentPadding: EdgeInsets.only(top: 0),
-                        hintText: "Search",
-                        filled: true,
-                        fillColor: KDIVIDER_COLOR,
-                        hintStyle: R14R.copyWith(color: GREY_COLOR),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Container(
+              margin: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Approval",
+                        style: FK22SB.copyWith(color: TextPrimary),
                       ),
-
-                    ),
-
-
-                  ),
-                ),
-                const SizedBox(
-                  height: 14,
-                ),
-
-                //List Data
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .74,
-                  child: ListView.builder(
-                      primary: false,
-                      itemCount: 5,
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            child: getItem(),
-                            onTap: () {
-                              search.unfocus();
+                      Row(
+                        children: [
+                          FlutterSwitch(
+                            height: 22,
+                            width: 45,
+                            padding: 3,
+                            toggleSize: 15,
+                            value: true,
+                            toggleColor: TextPrimary,
+                            inactiveColor: Colors.white,
+                            activeColor: Colors.white,
+                            switchBorder: Border.all(
+                              color: TextPrimary,
+                              width: 1.0,
+                            ),
+                            onToggle: (newVal) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const ReportDetails()),
+                                PageTransitionFade(const MyDashBoard2()),
                               );
                             },
                           ),
-                        );
-                      }),
-                ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          const Icon(Icons.group, color: TextPrimary,),
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
 
-              ],
+                  //search
+                  Container(
+                    height: 45,
+                    decoration: const BoxDecoration(
+                        color: KDIVIDER_COLOR,
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
+                      child: TextField(
+                        cursorHeight: 22,
+                        autofocus: false,
+                        textAlignVertical: TextAlignVertical.center,
+                        textAlign: TextAlign.left,
+                        onEditingComplete: (){
+
+                        },
+                        onSubmitted: (value){
+
+                        },
+                        decoration: InputDecoration(
+                          prefixIconConstraints: const BoxConstraints(maxWidth: 40) ,
+                          border: InputBorder.none,
+                          prefixIcon:Padding(
+                              padding: const EdgeInsets.only(left: 16,right: 9,bottom: 4),
+                              child:
+                              SvgPicture.asset(
+                                "assets/images/search.svg",
+                                color: GREY_COLOR,
+                                height: 20,
+                                width: 20,
+                              )
+                            // Icon(
+                            //   Icons.search,
+                            //   color: GREY_COLOR,
+                            //   size: 22,
+                            // ),
+                          ),
+                          // contentPadding: EdgeInsets.only(top: 0),
+                          hintText: "Search",
+                          filled: true,
+                          fillColor: KDIVIDER_COLOR,
+                          hintStyle: R14R.copyWith(color: GREY_COLOR),
+                        ),
+
+                      ),
+
+
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 14,
+                  ),
+
+                  //List Data
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .74,
+                    child: ListView.builder(
+                        primary: false,
+                        itemCount: 5,
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              child: getItem(),
+                              onTap: () {
+                                search.unfocus();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ReportDetails()),
+                                );
+                              },
+                            ),
+                          );
+                        }),
+                  ),
+
+                ],
+              ),
             ),
           ),
         ),
